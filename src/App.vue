@@ -1,30 +1,44 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Navbar :logo="logo_src" :alt="app_name" />
   <router-view/>
+    <Footer />
 </template>
 
+
+<script>
+import Navbar from './components/navbar.vue';
+import Footer from './components/footer.vue';
+
+export default {
+  components: {
+    Navbar,
+    Footer
+  },
+  data(){
+    return {
+      logo_src: "/img/logo.png",
+      app_name: "Make Your Burguer"
+    }
+  }
+}
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300&family=Lato:ital,wght@0,300;0,400;1,400&display=swap');
 
-nav {
-  padding: 30px;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Anek Malayalam', sans-serif;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+h1{
+    text-align: center;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.main-container{
+  margin: 50px;
+  min-height: 250px;
 }
 </style>
